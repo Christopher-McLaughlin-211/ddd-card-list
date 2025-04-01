@@ -25,7 +25,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     this.description = "";
     this.url = "";
     this.loading = false;
-    this.t = { ...this.t, title: "Title" };
   }
 
   static get properties() {
@@ -73,7 +72,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
           border: var(--ddd-border-sm);
           border-color: var(--ddd-border-color-white);
           margin: var(--ddd-spacing-2) 0;
-
         }
         button {
           background-color: var(--ddd-theme-default-white);
@@ -94,7 +92,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
           height: 70px;
           overflow: auto;
           margin-bottom: var(--ddd-spacing-4);
-
         }
       `];
   }

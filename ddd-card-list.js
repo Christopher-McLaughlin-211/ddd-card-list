@@ -48,50 +48,50 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
           font-family: var(--ddd-font-navigation);
         }
         .card {
-          width: 350px;
+          width: 300px;
+          border: none;
           border-radius: var(--ddd-radius-sm);
           margin: 20px auto;
-          box-shadow: var(--ddd-boxShadow-sm);
           text-align: center;
           padding: var(--ddd-spacing-4);
-          background-color: var(--ddd-theme-default-coalyGray);
+          background-color: var(--ddd-theme-default-white);
           margin: var(--ddd-spacing-0);
         }
         .title {
-          font-size: var(--ddd-font-size-s);
+          font-size: var(--ddd-font-size-md);
           font-weight: var(--ddd-font-weight-bold);
-          margin-bottom: var(--ddd-spacing-2);
-          margin-top: var(--ddd-spacing-2);
-          color: var(--ddd-theme-default-white);
+          margin: var(--ddd-spacing-3) var(--ddd-spacing-4) var(--ddd-spacing-2);
+          color: var(--ddd-theme-default-nittanyNavy);
         }
         .card img {
-          max-width: 200px;
-          max-height: 150px;
+          width: 100%;
           height: auto;
           border-radius: var(--ddd-radius-sm);
-          border: var(--ddd-border-sm);
-          border-color: var(--ddd-border-color-white);
-          margin: var(--ddd-spacing-2) 0;
+          border: none;
+
         }
         button {
-          background-color: var(--ddd-theme-default-white);
-          color: var(--ddd-theme-default-coalyGray);
+          background-color: var(--ddd-theme-default-link);
+          color: var(--ddd-theme-default-roarMaxlight);
           padding: var(--ddd-spacing-2);
-          border: var(--ddd-border-sm);
           border-radius: var(--ddd-radius-sm);
+          width: 100%;
+          height: 50px;
+          font-weight: var(--ddd-font-weight-bold);
+          border: none;
           cursor: pointer;
           transition: background-color 0.4s;
         }
         button:hover {
-          background-color: var(--ddd-theme-default-coalyGray);
-          color: var(--ddd-theme-default-white);
+          background-color: var(--ddd-theme-default-nittanyNavy);
+          color: var(--ddd-theme-default-roarMaxlight);
         }
         .description {
           font-size: var(--ddd-font-size-xs);
-          color: var(--ddd-theme-default-white);
-          height: 70px;
-          overflow: auto;
-          margin-bottom: var(--ddd-spacing-4);
+          color: var(--ddd-theme-default-black);
+          height: auto;
+          overflow: hidden;
+          margin: 0 var(--ddd-spacing-4) var(--ddd-spacing-4);
         }
       `];
   }
@@ -106,8 +106,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       }
       const json = await response.json();
       console.log(json.data);
-      this.title = json.data["og:title"] || json.data["title"] || "No title available";
       this.image = json.data["og:image"] || json.data["logo"] || "";
+      this.title = json.data["og:title"] || json.data["title"] || "No title available";
       this.description = json.data["og:description"] || "No description available";
       this.url = json.data["og:url"] || link;
       console.log(this.title);
@@ -115,7 +115,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       if (json.data['cool:card']) {
       }
       } catch (error) {
-         console.error("Error fetching metadata:", error.message);
+         console.error("Error:", error.message);
       } finally {
         this.loading = false;
       }
@@ -130,13 +130,13 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="card">
-        <h1 class="title">${this.title}</h1>
         <img src=${this.image} alt=${this.title} />
+        <h1 class="title">${this.title}</h1>
         <div class="description">
           <slot>${this.description}</slot>
         </div>
         <a href=${this.url} target="_blank">
-          <button class="btn"><em>Go to Website</em></button>
+          <button class="btn"><em>Explore ></em></button>
         </a>
       </div>
     `;

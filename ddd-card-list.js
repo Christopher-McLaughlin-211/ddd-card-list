@@ -24,7 +24,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "";
     this.description = "";
     this.url = "";
-    this.loading = false;
   }
 
   static get properties() {
@@ -34,7 +33,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       image: { type: String },
       description: { type: String },
       url: { type: String },
-      loading: { type: Boolean, reflect: true },
     };
   }
 
@@ -42,89 +40,60 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
       css`
         :host {
-          display: block;
+          display: inline-block;
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
         }
         .card {
-          width: 300px;
-          border: none;
+          width: 310px;
           border-radius: var(--ddd-radius-sm);
-          margin: 20px auto;
-          text-align: center;
-          padding: var(--ddd-spacing-4);
+          text-align: left;
           background-color: var(--ddd-theme-default-white);
-          margin: var(--ddd-spacing-0);
+        }
+        .card img {
+          width: 310px;
+          height: 220px;
+          border-radius: var(--ddd-radius-sm);
+          border-bottom-left-radius: var(--ddd-bottom-left-radius-xs);
+          border-bottom-right-radius: var(--ddd-bottom-right-radius-xs);
+          border-bottom: 12px solid var(--ddd-theme-default-nittanyNavy);
         }
         .title {
-          font-size: var(--ddd-font-size-md);
+          font-size: var(--ddd-font-size-lg);
           font-weight: var(--ddd-font-weight-bold);
           margin: var(--ddd-spacing-3) var(--ddd-spacing-4) var(--ddd-spacing-2);
           color: var(--ddd-theme-default-nittanyNavy);
         }
-        .card img {
-          width: 100%;
-          height: auto;
-          border-radius: var(--ddd-radius-sm);
-          border: none;
-
+        .description {
+          font-size: var(--ddd-font-size-sm);
+          color: var(--ddd-theme-default-potential75);
+          height: 180px;
+          margin: 0 var(--ddd-spacing-4) var(--ddd-spacing-4);
         }
         button {
           background-color: var(--ddd-theme-default-link);
           color: var(--ddd-theme-default-roarMaxlight);
+          margin-bottom: var(--ddd-spacing-4);
+          margin-left: var(--ddd-spacing-3);
           padding: var(--ddd-spacing-2);
           border-radius: var(--ddd-radius-sm);
-          width: 100%;
+          border: var(--ddd-border-width-xs) solid var(--ddd-theme-default-nittanyNavy);
+          width: 280px;
           height: 50px;
-          font-weight: var(--ddd-font-weight-bold);
-          border: none;
           cursor: pointer;
           transition: background-color 0.4s;
+        }
+        button em {
+          font-style: normal;
+          font-weight: var(--ddd-font-weight-bold);
+          font-size: var(--ddd-font-size-lg);
         }
         button:hover {
           background-color: var(--ddd-theme-default-nittanyNavy);
           color: var(--ddd-theme-default-roarMaxlight);
         }
-        .description {
-          font-size: var(--ddd-font-size-xs);
-          color: var(--ddd-theme-default-black);
-          height: auto;
-          overflow: hidden;
-          margin: 0 var(--ddd-spacing-4) var(--ddd-spacing-4);
-        }
       `];
-  }
-
-  async getData(link) {
-    const url = `https://open-apis.hax.cloud/api/services/website/metadata?q=${link}`;
-    try {
-      this.loading = true;
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-      const json = await response.json();
-      console.log(json.data);
-      this.image = json.data["og:image"] || json.data["logo"] || "";
-      this.title = json.data["og:title"] || json.data["title"] || "No title available";
-      this.description = json.data["og:description"] || "No description available";
-      this.url = json.data["og:url"] || link;
-      console.log(this.title);
-
-      if (json.data['cool:card']) {
-      }
-      } catch (error) {
-         console.error("Error:", error.message);
-      } finally {
-        this.loading = false;
-      }
-    }
-
-  updated(changedProperties) {
-    if (changedProperties.has("url") && this.url) {
-      this.getData(this.url);
-    }
   }
 
   render() {

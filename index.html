@@ -7,29 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Demonstration for ddd-card-list">
 
+
   <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
     ddd-card-list {
       margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-      display: inline-block;
-    }
-    ddd-card-list:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --ddd-card-list-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
+      border: none;
+      border-radius: var(--ddd-radius-md);
+      display: inline-flex;
+      box-shadow: var(--ddd-boxShadow-xl);
     }
   </style>
+
+
   <title>ddd-card-list</title>
 </head>
 
@@ -37,13 +26,179 @@
   <div id="demo">
     <h1>ddd-card-list</h1>
 
-    <h2>Card Practice:</h2>
-    <p></p>
-    <ddd-card-list url="https://www.psu.edu/academics/campuses/abington"></ddd-card-list>
-    <ddd-card-list url="https://www.psu.edu/academics/campuses/altoona"></ddd-card-list>
-    <ddd-card-list url="https://www.psu.edu/academics/campuses/beaver"></ddd-card-list>
-    <ddd-card-list url="https://www.psu.edu/academics/campuses/behrend"></ddd-card-list>
-    <p></p>
+    <ddd-card-list
+    title="Abington"
+    description="Penn State Abington offers students the benefits of a small, supportive college environment backed by the resources of a major university."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/1paFaX2Dc7iHh9Z6K7mIim/1427b9970ff21dd9c8a770067638efc1/abington-02.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/abington"
+  ></ddd-card-list>
 
+    <ddd-card-list
+    title="Altoona"
+    description="In central Pennsylvania close to University Park, Penn State Altoona offers the appeal of a small college with the prestige of a major research university."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/6oBUNrVTNPJaoE9ahnVX2E/2c655bdcf28befdf81d5a24248a9dca5/altoona-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/altoona"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Beaver"
+    description="Situated on one hundred acres, Penn State Beaver offers several bachelor's degrees, on-campus housing, and varsity sports, all within easy reach of Pittsburgh."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/C6YPZMqHyRaPeRrVTun8k/1ca61866afa1b3d903944a38ea34cecc/beaver-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/beaver"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Behrend"
+    description="Located in northwestern Pennsylvania, Penn State Behrend offers undergraduate and graduate degrees, research experiences, on-campus living, and athletics."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/1at2Tdx2RaIuI56SVrUWFM/b06b752a3e78509f0266db2b59aa5364/behrend-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/behrend"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Berks"
+    description="Penn State Berks offers bachelor’s degrees and four associate programs with small classes, internships, undergraduate research opportunities, and residential campus life."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/3WXgadpl3oKX50MmPHGV6m/a91103dc9e4bbe123e29fd25b81e3402/berks-02.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/berks"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Brandywine"
+    description="Penn State Brandywine is all about the highest quality in teaching, research, scholarship, and service to the campus, students, and the Delaware County community."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/2p1eWsDl9umbeRKa02UEsQ/bba80b11dd34aecab19db215eaa8bb59/brandywine-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/brandywine"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Carlisle"
+    description="Dickinson Law, located in Carlisle, offers study in various types of law and across disciplines."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/3rzA2HLc3Sy7uePX63LmYU/55d57acd326e0476cf70b5d7011e23b0/carlisle-01.jpg?fm=webp&w=3840&q=75"
+    url="https://dickinsonlaw.psu.edu/"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="DuBois"
+    description="Penn State DuBois prepares leaders through cutting-edge technology, faculty expertise, and dedication to excellence in a small-town setting in north-central Pennsylvania."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/eR6sYQ8zjwro8K2PxH20N/b495fd6e0f8f501631793c176c017859/dubois-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/dubois"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Fayette"
+    description="Penn State Fayette offers two- and four-year degrees, professional certificates, and lifelong learning programs on its 100-acre Laurel Highlands campus."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/11ESyA3FEln7HLFTt4nqRg/4ff6907e1878502f54b9a8c0a3fc1fcd/fayette-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/fayette"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Great Valley"
+    description="Penn State Great Valley School of Graduate Professional Studies delivers world-class graduate degrees and professional development."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/YDeCkbbuRylVjHtBtuMVX/118fb6a495c3c70b12bf50091e27af43/great-valley-01.jpg?fm=webp&w=3840&q=75"
+    url="https://greatvalley.psu.edu/"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Greater Allegheny"
+    description="Penn State Greater Allegheny is a residential campus close to Pittsburgh with four-year degrees, a diverse, international student body, athletics, and more."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/562jA8V5AvIbztm2Us8Yjv/b7364e9961dac6c13952b10d8fe131cc/greater-allegheny-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/greater-allegheny"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Harrisburg"
+    description="Penn State Harrisburg offers undergraduate and graduate programs, internships, research opportunities, award-winning faculty, on-campus housing, and athletics."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/2VLthVVBpYXqPeQG5USqfl/62835968936dd93e9a22f2e1b1bda992/harrisburg-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/harrisburg"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Hazleton"
+    description="Located in northeastern Pennsylvania, Penn State Hazleton is a 104-acre scenic campus overlooking the Conyngham valley, located near Interstates 80 and 81."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/4QwJzJJ3r3YfWvFLrGg7D6/faf9791573fed7166095269d4602b435/hazleton-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/hazleton"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Hershey"
+    description="Penn State Health Milton S. Hershey Medical Center, Penn State College of Medicine, and Penn State Health Children's Hospital enhance quality of life while training future health care professionals."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/2Ed3Ee6SkSxs8rUQKF2Rk3/41250c2bc127b8d8396daf82286acc18/hershey-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/campus-hershey"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Lehigh Valley"
+    description="Penn State Lehigh Valley offers a world-class education and opportunities both in and out of the classroom on a small campus in the Center Valley."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/2II8OjgV5dOjSeS8hmjflY/e5f5daa17b9ad9d81d825163e883ea83/lehighvalley-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/lehigh-valley"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Mont Alto"
+    description="Penn State Mont Alto integrates individualized teaching, research, and dynamic community outreach on a wooded campus in Franklin County."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/7K0N0qQes7oZoYhK2L8jfq/0d8d6a9bc4213fb62a994c8689ab7f38/mont-alto-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/mont-alto"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="New Kensington"
+    description="Just seventeen miles from Pittsburgh, Penn State New Kensington offers an array of degrees, undergraduate research, clubs, and athletics."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/6N6ETumv4Yz72od3nXoOgG/fcdcd524c54b174edb5d23db369f918b/new-kensington-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/new-kensington"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Schuylkill"
+    description="Penn State Schuylkill in east-central Pennsylvania offers sought-after degrees, a robust co-op program, internships, research opportunities, athletics, and on-campus apartments."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/1LemLBOdqwiSCi4MgA7CxT/c4d8717d8feca56cae96ecc97d9ad48d/schuylkill-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/schuylkill"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Scranton"
+    description="Located on forty-five acres outside of Scranton, Penn State Scranton strives to provide innovative instruction and help you achieve your potential."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/tutkkIk1Udm0Dtf2P5af9/ebcea8fc20394822167e7976198d3aa2/scranton-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/scranton"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Shenango"
+    description="On fifteen acres in downtown Sharon, Penn State Shenango is committed to the success of its students and serving the people of northwestern Pennsylvania."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/69cf0aAjR2A1BFlg9ntLFM/218a73e975200abbc78b39c03e18b4fa/shenango-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/shenango"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="University Park"
+    description="As the largest Penn State campus, Penn State University Park offers academics, activities, and recreation in the classic college town of State College."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/42jU5Flht8mEjcJ6vuUqAN/8be6901ac0cf59f6a71c4b758826b29f/university-park-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/university-park"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Wilkes-Barre"
+    description="Penn State Wilkes-Barre offers bachelor’s and associate degrees on a scenic estate close to Wilkes-Barre."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/6hmyMj20PVkSmHGfBNhF5m/4726f6137afb9b5724e91eea8a81068f/wilkes-barre-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/wilkes-barre"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="Williamsport"
+    description="As a Penn State affiliate, Pennsylvania College of Technology has a national reputation for workforce development and as a leader in applied technology education."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/ul6anHeXVZkShPobZf1ZY/2568b0917ddc9fbf736521f56c4fde33/penn-college-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/campus-williamsport"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="World Campus"
+    description="Penn State World Campus has more than 200 career-focused programs, taught by world-renowned faculty, in a flexible, online course environment."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/6dMdyHOnbgJew7XOTvrmWQ/120b5e41e555740922a029ae8e0183ec/world-campus-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/campus-world-campus"
+  ></ddd-card-list>
+
+    <ddd-card-list
+    title="York"
+    description="Located in south central Pennsylvania, Penn State York offers programs to meet the needs of local students, international students, and the community."
+    image="https://images.ctfassets.net/ni9rh5nu0d99/1WLVwsewl0Tt11oXn8fQkU/52096fcd41f468da171b095d38387c57/york-01.jpg?fm=webp&w=3840&q=75"
+    url="https://www.psu.edu/academics/campuses/york"
+  ></ddd-card-list>
 
   <script type="module" src="./ddd-card-list.js"></script>

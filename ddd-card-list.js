@@ -23,7 +23,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "";
     this.image = "";
     this.description = "";
-    this.url = "";
+    this.href = "";
   }
 
   static get properties() {
@@ -32,7 +32,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       image: { type: String },
       description: { type: String },
-      url: { type: String },
+      href: { type: String },
     };
   }
 
@@ -104,7 +104,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
         <div class="description">
           <slot>${this.description}</slot>
         </div>
-        <a href=${this.url} target="_blank">
+        <a href=${this.href} target="_blank">
           <button class="btn"><em>Explore ></em></button>
         </a>
       </div>

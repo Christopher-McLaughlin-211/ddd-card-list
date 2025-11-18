@@ -1,20 +1,8 @@
-/**
- * Copyright 2025 Christopher-McLaughlin-211
- * @license Apache-2.0, see LICENSE for full text.
- */
-
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-/**
- * `ddd-card-list`
- * A reusable card component for textbook listings
- *
- * @element ddd-card-list
- */
 export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
-
   static get tag() {
     return "ddd-card-list";
   }
@@ -37,7 +25,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       description: { type: String },
       href: { type: String },
       classCode: { type: String },
-      price: { type: String },
+      price: { type: String }
     };
   }
 
@@ -46,65 +34,71 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       super.styles,
       css`
         :host {
-          display: inline-block;
-          font-family: var(--ddd-font-navigation);
+          display: block;
         }
+
         .card {
-          max-width: 320px;
-          border-radius: var(--ddd-radius-sm);
-          background-color: var(--ddd-theme-default-white);
-          box-shadow: var(--ddd-boxShadow-md);
+          background: white;
+          border-radius: 12px;
           overflow: hidden;
-          transition: transform 0.2s ease-in-out;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
+
         .card:hover {
-          transform: translateY(-4px);
+          transform: translateY(-5px);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
-        .card img {
+
+        .image-wrapper img {
           width: 100%;
           height: auto;
           display: block;
-          border-bottom: 4px solid var(--ddd-theme-default-nittanyNavy);
         }
+
         .content {
-          padding: var(--ddd-spacing-3);
+          padding: 20px;
         }
-        .title {
-          font-size: var(--ddd-font-size-lg);
-          font-weight: var(--ddd-font-weight-bold);
-          margin: 0 0 var(--ddd-spacing-2);
-          color: var(--ddd-theme-default-nittanyNavy);
+
+        h2 {
+          font-size: 1.2rem;
+          margin: 0 0 10px;
+          font-weight: 600;
+          color: #1a3a6b;
         }
+
         .meta {
-          font-size: var(--ddd-font-size-sm);
-          color: var(--ddd-theme-default-potential75);
-          margin-bottom: var(--ddd-spacing-2);
+          font-size: 0.9rem;
+          color: #555;
+          margin-bottom: 6px;
         }
+
         .description {
-          font-size: var(--ddd-font-size-sm);
-          color: var(--ddd-theme-default-potential75);
-          margin-bottom: var(--ddd-spacing-3);
+          font-size: 0.95rem;
+          color: #444;
+          margin: 12px 0 20px;
+          line-height: 1.4rem;
         }
+
         a {
           text-decoration: none;
         }
+
         button {
-          background-color: var(--ddd-theme-default-link);
-          color: var(--ddd-theme-default-roarMaxlight);
-          padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
-          border-radius: var(--ddd-radius-sm);
-          border: none;
           width: 100%;
+          padding: 12px;
+          border: none;
+          border-radius: 8px;
+          background: #1a3a6b;
+          color: white;
+          font-weight: 600;
           cursor: pointer;
-          transition: background-color 0.3s;
+          font-size: 1rem;
+          transition: background 0.25s ease;
         }
-        button em {
-          font-style: normal;
-          font-weight: var(--ddd-font-weight-bold);
-          font-size: var(--ddd-font-size-md);
-        }
+
         button:hover {
-          background-color: var(--ddd-theme-default-nittanyNavy);
+          background: #10294f;
         }
       `
     ];
@@ -113,9 +107,12 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="card">
-        <img src=${this.image} alt=${this.title || "Textbook image"} />
+        <div class="image-wrapper">
+          <img src=${this.image} alt=${this.title || "Textbook image"} />
+        </div>
+
         <div class="content">
-          <h2 class="title">${this.title}</h2>
+          <h2>${this.title}</h2>
 
           ${this.classCode
             ? html`<div class="meta">Class: ${this.classCode}</div>`
@@ -129,8 +126,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
             <slot>${this.description}</slot>
           </div>
 
-          <a href=${this.href} target="_blank" rel="noopener">
-            <button><em>Message Seller ></em></button>
+          <a href=${this.href} target="_blank">
+            <button>Message Seller →</button>
           </a>
         </div>
       </div>

@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demo for textbook marketplace card list">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Textbook Marketplace</title>
 
-  <!-- Import map for @haxtheweb libraries -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <script type="importmap">
   {
     "imports": {
@@ -16,57 +18,83 @@
   }
   </script>
 
-  <!-- Load your component -->
   <script type="module" src="./ddd-card-list.js"></script>
 
   <style>
-    ddd-card-list {
-      margin: var(--ddd-spacing-2);
-      border: none;
-      border-radius: var(--ddd-radius-md);
-      display: inline-flex;
-      box-shadow: var(--ddd-boxShadow-xl);
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc;
+      font-family: "Inter", sans-serif;
+      color: #1a1a1a;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+    header {
+      background: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0;
+      color: #1a3a6b;
+    }
+
+    .grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    ddd-card-list {
+      display: block;
     }
   </style>
 
-  <title>Textbook Marketplace</title>
 </head>
 <body>
-  <div id="demo">
+
+  <header>
     <h1>Available Textbooks</h1>
+  </header>
+
+  <div class="grid">
 
     <ddd-card-list
       title="Calculus: Early Transcendentals"
       description="Stewart, 8th Edition. Lightly used, no markings."
-      image="https://example.com/images/calculus.jpg"
+      image="https://picsum.photos/seed/calculus/500/350"
       href="mailto:seller1@example.com"
       classCode="MATH 140"
-      price="$50"
-    ></ddd-card-list>
+      price="$50">
+    </ddd-card-list>
 
     <ddd-card-list
       title="Introduction to Psychology"
       description="Psychology textbook, 5th Edition. Highlighted chapters 3–6."
-      image="https://example.com/images/psychology.jpg"
+      image="https://picsum.photos/seed/psychology/500/350"
       href="mailto:seller2@example.com"
       classCode="PSYCH 100"
-      price="$35"
-    ></ddd-card-list>
+      price="$35">
+    </ddd-card-list>
 
     <ddd-card-list
       title="Principles of Economics"
       description="Mankiw, 9th Edition. Great condition."
-      image="https://example.com/images/economics.jpg"
+      image="https://picsum.photos/seed/economics/500/350"
       href="mailto:seller3@example.com"
       classCode="ECON 102"
-      price="$40"
-    ></ddd-card-list>
+      price="$40">
+    </ddd-card-list>
 
   </div>
+
 </body>
 </html>

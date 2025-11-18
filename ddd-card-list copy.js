@@ -8,7 +8,6 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `ddd-card-list`
- * A reusable card component for textbook listings
  *
  * @demo index.html
  * @element ddd-card-list
@@ -25,8 +24,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "";
     this.description = "";
     this.href = "";
-    this.classCode = "";
-    this.price = "";
   }
 
   static get properties() {
@@ -36,8 +33,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       image: { type: String },
       description: { type: String },
       href: { type: String },
-      classCode: { type: String },
-      price: { type: String },
     };
   }
 
@@ -46,61 +41,57 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: inline-block;
+          color: var(--ddd-theme-primary);
+          background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
         }
         .card {
-          max-width: 320px;
+          width: 310px;
           border-radius: var(--ddd-radius-sm);
+          text-align: left;
           background-color: var(--ddd-theme-default-white);
-          box-shadow: var(--ddd-boxShadow-md);
-          overflow: hidden;
-          transition: transform 0.2s ease-in-out;
-        }
-        .card:hover {
-          transform: translateY(-4px);
         }
         .card img {
-          width: 100%;
-          height: auto;
-          display: block;
-          border-bottom: 4px solid var(--ddd-theme-default-nittanyNavy);
-        }
-        .content {
-          padding: var(--ddd-spacing-3);
+          width: 310px;
+          height: 220px;
+          border-radius: var(--ddd-radius-sm);
+          border-bottom-left-radius: var(--ddd-bottom-left-radius-xs);
+          border-bottom-right-radius: var(--ddd-bottom-right-radius-xs);
+          border-bottom: 12px solid var(--ddd-theme-default-nittanyNavy);
         }
         .title {
           font-size: var(--ddd-font-size-lg);
           font-weight: var(--ddd-font-weight-bold);
-          margin: 0 0 var(--ddd-spacing-2);
+          margin: var(--ddd-spacing-3) var(--ddd-spacing-4) var(--ddd-spacing-2);
           color: var(--ddd-theme-default-nittanyNavy);
-        }
-        .meta {
-          font-size: var(--ddd-font-size-sm);
-          color: var(--ddd-theme-default-potential75);
-          margin-bottom: var(--ddd-spacing-2);
         }
         .description {
           font-size: var(--ddd-font-size-sm);
           color: var(--ddd-theme-default-potential75);
-          margin-bottom: var(--ddd-spacing-3);
+          height: 180px;
+          margin: 0 var(--ddd-spacing-4) var(--ddd-spacing-4);
         }
         button {
           background-color: var(--ddd-theme-default-link);
           color: var(--ddd-theme-default-roarMaxlight);
-          padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
+          margin-bottom: var(--ddd-spacing-4);
+          margin-left: var(--ddd-spacing-3);
+          padding: var(--ddd-spacing-2);
           border-radius: var(--ddd-radius-sm);
-          border: none;
-          width: 100%;
+          border: var(--ddd-border-width-xs) solid var(--ddd-theme-default-nittanyNavy);
+          width: 280px;
+          height: 50px;
           cursor: pointer;
-          transition: background-color 0.3s;
+          transition: background-color 0.4s;
         }
         button em {
           font-style: normal;
           font-weight: var(--ddd-font-weight-bold);
-          font-size: var(--ddd-font-size-md);
+          font-size: var(--ddd-font-size-lg);
         }
         button:hover {
           background-color: var(--ddd-theme-default-nittanyNavy);
+          color: var(--ddd-theme-default-roarMaxlight);
         }
       `];
   }
@@ -108,24 +99,25 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="card">
-        <img src=${this.image} alt=${this.title || "Textbook image"} />
-        <div class="content">
-          <h2 class="title">${this.title}</h2>
-          ${this.classCode ? html`<div class="meta">Class: ${this.classCode}</div>` : ""}
-          ${this.price ? html`<div class="meta">Price: ${this.price}</div>` : ""}
-          <div class="description">
-            <slot>${this.description}</slot>
-          </div>
-          <a href=${this.href} target="_blank" rel="noopener">
-            <button><em>Message Seller ></em></button>
-          </a>
+        <img src=${this.image} alt=${this.title} />
+        <h1 class="title">${this.title}</h1>
+        <div class="description">
+          <slot>${this.description}</slot>
         </div>
+        <a href=${this.href} target="_blank">
+          <button class="btn"><em>Explore ></em></button>
+        </a>
       </div>
     `;
   }
 
+
+  /**
+   * haxProperties integration via file reference
+   */
   static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url).href;
+    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
+      .href;
   }
 }
 

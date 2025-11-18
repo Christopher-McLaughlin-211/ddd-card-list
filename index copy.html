@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Demo for textbook marketplace card list">
+
+  <style>
+    ddd-card-list {
+      margin: var(--ddd-spacing-2);
+      border: none;
+      border-radius: var(--ddd-radius-md);
+      display: inline-flex;
+      box-shadow: var(--ddd-boxShadow-xl);
+    }
+  </style>
+
+  <title>Textbook Marketplace</title>
+</head>
+<body>
+  <div id="demo">
+    <h1>Available Textbooks</h1>
+
+    <ddd-card-list
+      title="Calculus: Early Transcendentals"
+      description="Stewart, 8th Edition. Lightly used, no markings."
+      image="https://example.com/images/calculus.jpg"
+      href="mailto:seller1@example.com"
+      classCode="MATH 140"
+      price="$50"
+    ></ddd-card-list>
+
+    <ddd-card-list
+      title="Introduction to Psychology"
+      description="Psychology textbook, 5th Edition. Highlighted chapters 3–6."
+      image="https://example.com/images/psychology.jpg"
+      href="mailto:seller2@example.com"
+      classCode="PSYCH 100"
+      price="$35"
+    ></ddd-card-list>
+
+    <ddd-card-list
+      title="Principles of Economics"
+      description="Mankiw, 9th Edition. Great condition."
+      image="https://example.com/images/economics.jpg"
+      href="mailto:seller3@example.com"
+      classCode="ECON 102"
+      price="$40"
+    ></ddd-card-list>
+
+  </div>
+
+  <script type="module" src="./ddd-card-list.js"></script>
+</body>
+</html>

@@ -1,100 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Textbook Marketplace</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Professional Portfolio</title>
+<style>
+:root {
+--bg: #0d1117;
+--card: #161b22;
+--text: #e6edf3;
+--accent: #3b82f6;
+--accent-light: #60a5fa;
+--border: #30363d;
+}
+body {
+margin: 0;
+font-family: "Segoe UI", sans-serif;
+background: var(--bg);
+color: var(--text);
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+/* Navbar */
+header {
+background: var(--card);
+border-bottom: 1px solid var(--border);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 0;
+z-index: 10;
+}
+.logo {
+font-size: 1.4rem;
+font-weight: bold;
+color: var(--accent);
+}
+nav a {
+margin-left: 1.5rem;
+text-decoration: none;
+color: var(--text);
+font-size: 1rem;
+opacity: 0.9;
+}
+nav a:hover {
+color: var(--accent-light);
+}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+/* Hero */
+.hero {
+text-align: center;
+padding: 4rem 1rem;
+}
+.hero h1 {
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
+}
+.hero p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
 
-  <script type="importmap">
-  {
-    "imports": {
-      "@haxtheweb/d-d-d/": "https://cdn.jsdelivr.net/npm/@haxtheweb/d-d-d@latest/",
-      "@haxtheweb/i18n-manager/": "https://cdn.jsdelivr.net/npm/@haxtheweb/i18n-manager@latest/"
-    }
-  }
-  </script>
 
-  <script type="module" src="./ddd-card-list.js"></script>
+/* Search */
+.search-box {
+margin: 2rem auto;
+width: 90%;
+max-width: 550px;
+}
+.search-box input {
+width: 100%;
+padding: 0.8rem 1rem;
+border-radius: 8px;
+border: 1px solid var(--border);
+background: var(--card);
+color: var(--text);
+font-size: 1rem;
+}
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f7f9fc;
-      font-family: "Inter", sans-serif;
-      color: #1a1a1a;
-    }
 
-    header {
-      background: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-      margin-bottom: 40px;
-    }
+/* Cards */
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+padding: 2rem;
+width: 90%;
+margin: auto;
+}
+.card {
+background: var(--card);
+padding: 1.5rem;
+border-radius: 12px;
+border: 1px solid var(--border);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUp 0.6s forwards;
+}
+@keyframes fadeInUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.card h3 {
+margin-top: 0;
+color: var(--accent-light);
+}
+.card p {
+opacity: 0.9;
+line-height: 1.5;
+}
 
-    header h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin: 0;
-      color: #1a3a6b;
-    }
-
-    .grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    ddd-card-list {
-      display: block;
-    }
-  </style>
-
+/* Footer */
+footer {
+margin-top: auto;
+padding: 1.5rem;
+text-align: center;
+opacity: 0.7;
+border-top: 1px solid var(--border);
+}
+</style>
 </head>
 <body>
+<header>
+<div class="logo">MyPortfolio</div>
+<nav>
+<a href="#projects">Projects</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-  <header>
-    <h1>Available Textbooks</h1>
-  </header>
 
-  <div class="grid">
+<section class="hero">
+<h1>Welcome to My Portfolio</h1>
+<p>A clean, modern, professional showcase of my work.</p>
+</section>
 
-    <ddd-card-list
-      title="Calculus: Early Transcendentals"
-      description="Stewart, 8th Edition. Lightly used, no markings."
-      image="https://picsum.photos/seed/calculus/500/350"
-      href="mailto:seller1@example.com"
-      classCode="MATH 140"
-      price="$50">
-    </ddd-card-list>
 
-    <ddd-card-list
-      title="Introduction to Psychology"
-      description="Psychology textbook, 5th Edition. Highlighted chapters 3–6."
-      image="https://picsum.photos/seed/psychology/500/350"
-      href="mailto:seller2@example.com"
-      classCode="PSYCH 100"
-      price="$35">
-    </ddd-card-list>
+<div class="search-box">
+<input id="searchInput" type="text" placeholder="Search projects..." />
+</div>
 
-    <ddd-card-list
-      title="Principles of Economics"
-      description="Mankiw, 9th Edition. Great condition."
-      image="https://picsum.photos/seed/economics/500/350"
-      href="mailto:seller3@example.com"
-      classCode="ECON 102"
-      price="$40">
-    </ddd-card-list>
 
-  </div>
+<section id="projects" class="card-grid">
+<div class="card" data-title="cybersecurity tool">
+<h3>Cybersecurity Tool</h3>
+<p>A custom-built network analysis tool with automated detection logic.</p>
+</div>
 
+
+<div class="card" data-title="malware analyzer">
+<h3>Malware Analyzer</h3>
+<p>Static + dynamic analysis tool for reverse engineering suspicious binaries.</p>
+</div>
+
+
+<div class="card" data-title="portfolio website">
+<h3>Portfolio Website</h3>
+<p>A professional, responsive site showcasing projects and skills.</p>
+</div>
+
+
+<div class="card" data-title="sql dashboard">
+<h3>SQL Dashboard</h3>
+<p>A live data dashboard using MySQL + JS visualizations.</p>
+</div>
+</section>
+
+
+<footer>
+© 2025 Your Name — Professional Portfolio
+</footer>
+
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+
+
+searchInput.addEventListener("input", () => {
+const query = searchInput.value.toLowerCase();
+cards.forEach((card) => {
+const title = card.dataset.title.toLowerCase();
+card.style.display = title.includes(query) ? "block" : "none";
+});
+});
+</script>
 </body>
 </html>
